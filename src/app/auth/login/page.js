@@ -1,4 +1,3 @@
-// app/auth/login/page.js
 "use client";
 
 import React, { useState } from "react";
@@ -12,6 +11,8 @@ import {
   FormLabel,
   Input,
   Heading,
+  Text,
+  Link,
 } from "@chakra-ui/react";
 
 const Login = () => {
@@ -37,25 +38,52 @@ const Login = () => {
   };
 
   return (
-    <Container maxW="md">
-      <Heading mb={6}>Login</Heading>
-      <Box as="form" onSubmit={handleSubmit}>
-        <FormControl id="email" mb={4}>
-          <FormLabel>Email</FormLabel>
-          <Input name="email" value={formData.email} onChange={handleChange} />
-        </FormControl>
-        <FormControl id="password" mb={6}>
-          <FormLabel>Password</FormLabel>
-          <Input
-            name="password"
-            type="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </FormControl>
-        <Button type="submit" colorScheme="teal" width="full">
+    <Container centerContent>
+      <Box
+        p={8}
+        maxW="md"
+        borderWidth={1}
+        borderRadius="lg"
+        boxShadow="lg"
+        mt={12}
+      >
+        <Heading mb={6} textAlign="center">
           Login
-        </Button>
+        </Heading>
+        <Box as="form" onSubmit={handleSubmit}>
+          <FormControl id="email" mb={4}>
+            <FormLabel>Email</FormLabel>
+            <Input
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl id="password" mb={6}>
+            <FormLabel>Password</FormLabel>
+            <Input
+              name="password"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </FormControl>
+          <Button
+            type="submit"
+            colorScheme="teal"
+            width="full"
+            borderRadius="full"
+            mb={4}
+          >
+            Login
+          </Button>
+          <Text textAlign="center">
+            Don't have an account?{" "}
+            <Link color="teal.500" href="/auth/signup">
+              Sign Up
+            </Link>
+          </Text>
+        </Box>
       </Box>
     </Container>
   );
